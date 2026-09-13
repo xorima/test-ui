@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Forge Ledger is a premium collection control center for Warhammer hobbyists." />
+    <title>Forge Ledger</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-menu-open="false">
+      <aside class="sidebar" aria-label="Primary navigation" id="sidebar-nav">
+        <div class="sidebar__brand">
+          <img class="brand-mark" src="logo.png" alt="Forge Ledger" />
+          <span class="sidebar__brand-name">Forge Ledger</span>
+        </div>
+
+        <button class="sidebar-burger" type="button" aria-expanded="false" aria-controls="sidebar-nav" aria-label="Open navigation menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <nav class="sidebar__nav">
+          <a class="nav-item nav-item--active" href="#collection"><span class="nav-icon">◫</span><span class="nav-label">Collection</span></a>
+          <a class="nav-item" href="#armies"><span class="nav-icon">⚔</span><span class="nav-label">Armies</span></a>
+          <a class="nav-item" href="#paint"><span class="nav-icon">✎</span><span class="nav-label">Paint</span></a>
+          <a class="nav-item" href="#games"><span class="nav-icon">▣</span><span class="nav-label">Games</span></a>
+          <a class="nav-item" href="#photos"><span class="nav-icon">◉</span><span class="nav-label">Photos</span></a>
+          <a class="nav-item" href="#notes"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a>
+        </nav>
+      </aside>
+
+      <div class="app-main">
+        <header class="topbar">
+          <div class="topbar__context">
+            <p class="topbar__eyebrow">Forge Ledger</p>
+            <h2>Armoury / Space Marines</h2>
+          </div>
+          <div class="topbar__actions">
+            <button type="button" class="action-pill">Import list</button>
+            <button type="button" class="action-pill action-pill--accent">Add unit</button>
+          </div>
+        </header>
+
+        <main class="content" id="collection">
+          <section class="summary-row">
+            <article class="summary-card">
+              <p class="summary-card__label">Armoury status</p>
+              <strong>128 models</strong>
+              <span>Across 4 game systems</span>
+            </article>
+            <article class="summary-card">
+              <p class="summary-card__label">Battle ready</p>
+              <strong>14 units</strong>
+              <span>Painted and field tested</span>
+            </article>
+            <article class="summary-card">
+              <p class="summary-card__label">Battle record</p>
+              <strong>9 games</strong>
+              <span>Edition and score history</span>
+            </article>
+            <article class="summary-card summary-card--accent">
+              <p class="summary-card__label">Current muster</p>
+              <strong>Space Marines</strong>
+              <span>Location, paint, and photos</span>
+            </article>
+          </section>
+
+          <section class="dashboard-grid" aria-label="Dashboard content">
+            <article class="panel panel--wide" id="armies">
+              <div class="panel__header">
+                <h3>Armoury status</h3>
+                <span class="detail-chip">Updated today</span>
+              </div>
+              <div class="status-table">
+                <div class="status-row"><span>Intercessor Squad Alpha</span><span>Painted</span><span>Home</span><span class="status-marker status-marker--ready">Battle ready</span></div>
+                <div class="status-row"><span>Bladeguard Veterans</span><span>Built</span><span>Store</span><span class="status-marker status-marker--magnetised">Magnetised</span></div>
+                <div class="status-row"><span>Scout Squad</span><span>In box</span><span>Cabinet</span><span class="status-marker status-marker--basing">Needs basing</span></div>
+              </div>
+            </article>
+
+            <article class="panel panel--media" id="photos">
+              <div class="detail-panel__header">
+                <h3>Current paint reference</h3>
+                <span class="detail-chip detail-chip--soft">3 images</span>
+              </div>
+              <div class="photo-grid">
+                <figure class="photo-frame photo-frame--one">
+                  <img src="space-marine-1.png" alt="Painted Space Marine with red helmet and dark blue armour" />
+                </figure>
+                <figure class="photo-frame photo-frame--two">
+                  <img src="space-marine-2.png" alt="Blue Space Marine holding a weapon" />
+                </figure>
+                <figure class="photo-frame photo-frame--three">
+                  <img src="space-marine-3.png" alt="Space Marine miniature with heavy weapon and white shoulder plate" />
+                </figure>
+              </div>
+            </article>
+
+            <article class="panel" id="paint">
+              <div class="panel__header">
+                <h3>Paint doctrine</h3>
+                <span class="detail-chip">Completed unit</span>
+              </div>
+              <ul class="note-list">
+                <li>Prime black, zenithal white.</li>
+                <li>Blue armor, red helmet, white pauldron.</li>
+                <li>Finish with edge highlights and matte varnish.</li>
+              </ul>
+            </article>
+
+            <article class="panel" id="games">
+              <div class="panel__header">
+                <h3>Recent battle record</h3>
+                <span class="detail-chip">10th edition</span>
+              </div>
+              <ul class="note-list">
+                <li>January points list</li>
+                <li>Score: 81-72</li>
+                <li>Last run: 12 Jan</li>
+              </ul>
+            </article>
+
+            <article class="panel" id="notes">
+              <div class="panel__header">
+                <h3>Field location and notes</h3>
+                <span class="detail-chip">Home</span>
+              </div>
+              <p>Stored in a labelled case with weathering notes and spare shoulder plates.</p>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
