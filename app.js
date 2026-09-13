@@ -1,10 +1,14 @@
-export function nextMenuState(isOpen) {
+function nextMenuState(isOpen) {
   const nextIsOpen = !isOpen;
 
   return {
     isOpen: nextIsOpen,
     ariaExpanded: String(nextIsOpen),
   };
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { nextMenuState };
 }
 
 const sidebar = typeof document !== 'undefined' ? document.querySelector('.sidebar') : null;

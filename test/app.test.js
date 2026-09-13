@@ -1,7 +1,7 @@
-import assert from 'node:assert/strict';
-import test from 'node:test';
+const assert = require('node:assert/strict');
+const test = require('node:test');
 
-import { nextMenuState } from '../app.js';
+const { nextMenuState } = require('../app.js');
 
 test('nextMenuState opens a closed menu', () => {
   const result = nextMenuState(false);
