@@ -1,1 +1,127 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Forge Ledger - Collection Board</title><link rel="stylesheet" href="styles.css"></head><body><div class="app-shell" data-menu-open="false"><aside class="sidebar" id="sidebar-nav"><div class="sidebar__brand"><img class="brand-mark" src="logo.png" alt="Forge Ledger"><span class="sidebar__brand-name">Forge Ledger</span></div><button class="sidebar-burger" type="button" aria-expanded="false"><span></span><span></span><span></span></button><nav class="sidebar__nav"><div class="nav-group"><a class="nav-item nav-item--active" href="index.html"><span class="nav-icon">◫</span><span class="nav-label">Collection</span></a></div><div class="nav-group"><a class="nav-item" href="armies.html"><span class="nav-icon">⚔</span><span class="nav-label">Armies</span></a></div><div class="nav-group"><a class="nav-item" href="paint.html"><span class="nav-icon">✎</span><span class="nav-label">Paint</span></a></div><div class="nav-group"><a class="nav-item" href="games.html"><span class="nav-icon">▣</span><span class="nav-label">Games</span></a></div><div class="nav-group"><a class="nav-item" href="photos.html"><span class="nav-icon">◉</span><span class="nav-label">Photos</span></a></div><div class="nav-group"><a class="nav-item" href="notes.html"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a></div></nav></aside><div class="app-main"><header class="topbar"><div class="topbar__context"><p class="topbar__eyebrow">Forge Ledger</p><h2>Collection Board</h2></div><div class="topbar__actions"><span class="detail-chip">Drag units between stages</span></div></header><main class="content"><section class="panel panel--wide"><div class="panel__header"><h3>Hobby progress</h3><span class="detail-chip">Space Marines</span></div><div class="progress-board"><div class="progress-column" data-drop-zone><h3>In box</h3><div class="unit-card" id="unit-scouts" draggable="true"><strong>Scout Squad</strong><span>10 models</span></div></div><div class="progress-column" data-drop-zone><h3>Built</h3><div class="unit-card" id="unit-bladeguard" draggable="true"><strong>Bladeguard Veterans</strong><span>3 models · magnetised</span></div></div><div class="progress-column" data-drop-zone><h3>Painted</h3><div class="unit-card" id="unit-intercessors" draggable="true"><strong>Intercessor Squad Alpha</strong><span>5 models</span></div></div><div class="progress-column" data-drop-zone><h3>Based</h3><div class="unit-card" id="unit-captain" draggable="true"><strong>Captain Severin</strong><span>1 model</span></div></div><div class="progress-column" data-drop-zone><h3>Battle ready</h3><div class="unit-card" id="unit-redemptor" draggable="true"><strong>Redemptor Dreadnought</strong><span>1 model</span></div></div></div></section></main></div></div><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forge Ledger - Collection Board</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-menu-open="false">
+      <aside class="sidebar" id="sidebar-nav">
+        <div class="sidebar__brand">
+          <img class="brand-mark" src="logo.png" alt="Forge Ledger" /><span
+            class="sidebar__brand-name"
+            >Forge Ledger</span
+          >
+        </div>
+        <button class="sidebar-burger" type="button" aria-expanded="false" aria-controls="sidebar-nav" aria-label="Open navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="sidebar__nav">
+          <div class="nav-group">
+            <a class="nav-item nav-item--active" href="index.html"
+              ><span class="nav-icon">◫</span
+              ><span class="nav-label">Collection</span></a
+            >
+          </div>
+          <div class="nav-group">
+            <a class="nav-item" href="armies.html"
+              ><span class="nav-icon">⚔</span
+              ><span class="nav-label">Armies</span></a
+            >
+          </div>
+          <div class="nav-group">
+            <a class="nav-item" href="paint.html"
+              ><span class="nav-icon">✎</span
+              ><span class="nav-label">Paint</span></a
+            >
+          </div>
+          <div class="nav-group">
+            <a class="nav-item" href="games.html"
+              ><span class="nav-icon">▣</span
+              ><span class="nav-label">Games</span></a
+            >
+          </div>
+          <div class="nav-group">
+            <a class="nav-item" href="photos.html"
+              ><span class="nav-icon">◉</span
+              ><span class="nav-label">Photos</span></a
+            >
+          </div>
+          <div class="nav-group">
+            <a class="nav-item" href="notes.html"
+              ><span class="nav-icon">▤</span
+              ><span class="nav-label">Notes</span></a
+            >
+          </div>
+          <div class="nav-group">
+            <a class="nav-item" href="wishlist.html"
+              ><span class="nav-icon">☆</span
+              ><span class="nav-label">Wishlist</span></a
+            >
+          </div>
+          <div class="nav-group">
+            <a class="nav-item" href="supplies.html"
+              ><span class="nav-icon">⌁</span
+              ><span class="nav-label">Supplies</span></a
+            >
+          </div>
+        </nav>
+      </aside>
+      <div class="app-main">
+        <header class="topbar">
+          <div class="topbar__context">
+            <p class="topbar__eyebrow">Forge Ledger</p>
+            <h2>Collection Board</h2>
+          </div>
+          <div class="topbar__actions">
+            <span class="detail-chip">Drag units between stages</span>
+          </div>
+        </header>
+        <main class="content">
+          <section class="panel panel--wide">
+            <div class="panel__header">
+              <h3>Hobby progress</h3>
+              <span class="detail-chip">Space Marines</span>
+            </div>
+            <div class="progress-board">
+              <div class="progress-column" data-drop-zone>
+                <h3>In box</h3>
+                <div class="unit-card" id="unit-scouts" draggable="true">
+                  <strong>Scout Squad</strong><span>10 models</span>
+                </div>
+              </div>
+              <div class="progress-column" data-drop-zone>
+                <h3>Built</h3>
+                <div class="unit-card" id="unit-bladeguard" draggable="true">
+                  <strong>Bladeguard Veterans</strong
+                  ><span>3 models · magnetised</span>
+                </div>
+              </div>
+              <div class="progress-column" data-drop-zone>
+                <h3>Painted</h3>
+                <div class="unit-card" id="unit-intercessors" draggable="true">
+                  <strong>Intercessor Squad Alpha</strong><span>5 models</span>
+                </div>
+              </div>
+              <div class="progress-column" data-drop-zone>
+                <h3>Based</h3>
+                <div class="unit-card" id="unit-captain" draggable="true">
+                  <strong>Captain Severin</strong><span>1 model</span>
+                </div>
+              </div>
+              <div class="progress-column" data-drop-zone>
+                <h3>Battle ready</h3>
+                <div class="unit-card" id="unit-redemptor" draggable="true">
+                  <strong>Redemptor Dreadnought</strong><span>1 model</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

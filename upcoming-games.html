@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Upcoming game readiness for Forge Ledger." />
+    <title>Forge Ledger - Upcoming Games</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-menu-open="false">
+      <aside class="sidebar" aria-label="Primary navigation" id="sidebar-nav">
+        <div class="sidebar__brand">
+          <img class="brand-mark" src="logo.png" alt="Forge Ledger" />
+          <span class="sidebar__brand-name">Forge Ledger</span>
+        </div>
+        <button class="sidebar-burger" type="button" aria-expanded="false" aria-controls="sidebar-nav" aria-label="Open navigation menu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+        <nav class="sidebar__nav">
+          <div class="nav-group"><a class="nav-item" href="index.html"><span class="nav-icon nav-icon--collection" aria-hidden="true"></span><span class="nav-label">Collection</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="armies.html"><span class="nav-icon">⚔</span><span class="nav-label">Armies</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="paint.html"><span class="nav-icon">✎</span><span class="nav-label">Paint</span></a></div>
+          <div class="nav-group nav-group--active"><a class="nav-item nav-item--active" href="games.html"><span class="nav-icon">▣</span><span class="nav-label">Games</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="photos.html"><span class="nav-icon">◉</span><span class="nav-label">Photos</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="notes.html"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="wishlist.html"><span class="nav-icon">☆</span><span class="nav-label">Wishlist</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="supplies.html"><span class="nav-icon">⌁</span><span class="nav-label">Supplies</span></a></div>
+        </nav>
+      </aside>
+
+      <div class="app-main">
+        <header class="topbar">
+          <div class="topbar__context">
+            <p class="topbar__eyebrow">Game planning</p>
+            <h2>Upcoming games</h2>
+          </div>
+          <div class="topbar__actions"><a class="action-pill" href="games.html">Battle record</a></div>
+        </header>
+
+        <main class="content">
+          <section class="game-page-heading" aria-labelledby="upcoming-games-heading">
+            <div>
+              <p class="panel__eyebrow">Readiness calendar</p>
+              <h1 id="upcoming-games-heading">Three engagements, one clear muster plan.</h1>
+            </div>
+            <p>Choose a game to see its saved list, unit availability, and what to record once the dice are down.</p>
+          </section>
+
+          <section class="upcoming-games-layout" aria-label="Upcoming game readiness">
+            <div class="game-entry-list" role="list" aria-label="Scheduled games">
+              <button class="game-entry game-entry--action-needed" type="button" data-game="friday" aria-current="true">
+                <span class="game-entry__date"><strong>Fri</strong><span>17 Jan</span></span>
+                <span class="game-entry__details"><strong>Dragon's Hoard Games</strong><span>Warhammer 40,000 · Crimson Wardens</span><span>Saved list: Crimson Wardens 2,000 pts</span></span>
+                <span class="game-status game-status--action-needed">Action needed</span>
+              </button>
+              <button class="game-entry game-entry--ready" type="button" data-game="saturday">
+                <span class="game-entry__date"><strong>Sat</strong><span>25 Jan</span></span>
+                <span class="game-entry__details"><strong>Guildhall Wargames</strong><span>Warhammer Age of Sigmar · Iron Hallow</span><span>Saved list: Iron Hallow Vanguard</span></span>
+                <span class="game-status game-status--ready">Ready</span>
+              </button>
+              <button class="game-entry game-entry--at-risk" type="button" data-game="february">
+                <span class="game-entry__date"><strong>Sat</strong><span>08 Feb</span></span>
+                <span class="game-entry__details"><strong>The Tabletop Forge</strong><span>Horus Heresy · Knights of the Forge</span><span>Saved list: Forge Spearhead, 3,000 pts</span></span>
+                <span class="game-status game-status--at-risk">At risk</span>
+              </button>
+            </div>
+
+            <article class="panel selected-game-panel" data-selected-game aria-live="polite">
+              <div class="panel__header">
+                <div>
+                  <p class="panel__eyebrow">Selected game</p>
+                  <h3>Friday, 17 January</h3>
+                </div>
+                <span class="game-status game-status--action-needed">Action needed</span>
+              </div>
+              <div class="selected-game-panel__meta">
+                <span>Dragon's Hoard Games</span><span>Warhammer 40,000</span><span>Crimson Wardens 2,000 pts</span>
+              </div>
+              <section class="readiness-section">
+                <h4>Required list units</h4>
+                <ul class="readiness-list"><li><strong>Bladeguard Veterans</strong><span>Home Display Shelf</span></li><li><strong>Scout Squad</strong><span>Needs grass tufts</span></li><li><strong>Terminator Squad</strong><span>Ready at Dragon's Hoard</span></li></ul>
+              </section>
+              <section class="readiness-section readiness-section--tasks">
+                <h4>Deadline tasks</h4>
+                <ul class="task-list"><li>Take Bladeguard Veterans from Home Display Shelf to Dragon's Hoard before Friday.</li><li>Buy grass tufts for Scout Squad bases.</li></ul>
+              </section>
+              <form class="post-game-record">
+                <h4>Post-game record</h4>
+                <div class="post-game-record__fields">
+                  <label>Opponent faction<input name="opponent-faction" value="Tyranids" /></label>
+                  <label>Your score <span>Optional</span><input name="your-score" type="number" inputmode="numeric" /></label>
+                  <label>Opponent score <span>Optional</span><input name="opponent-score" type="number" inputmode="numeric" /></label>
+                </div>
+              </form>
+            </article>
+          </section>
+
+          <section class="readiness-key" aria-label="Readiness status guide">
+            <span><i class="game-status game-status--ready">Ready</i> all required models are owned, prepared, and at the venue.</span>
+            <span><i class="game-status game-status--action-needed">Action needed</i> dated tasks remain before muster.</span>
+            <span><i class="game-status game-status--at-risk">At risk</i> a required model or supply is missing or overdue.</span>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

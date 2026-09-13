@@ -22,12 +22,14 @@
         </button>
 
         <nav class="sidebar__nav">
-          <div class="nav-group nav-group--active"><a class="nav-item nav-item--active" href="index.html"><span class="nav-icon nav-icon--collection" aria-hidden="true"></span><span class="nav-label">Collection</span></a><div class="subnav"><a href="collection-board.html">Collection board</a><a href="model-detail.html">Model detail</a></div></div>
-          <div class="nav-group"><a class="nav-item" href="armies.html"><span class="nav-icon">⚔</span><span class="nav-label">Armies</span></a><div class="subnav"><a href="army-list-detail.html">Army list detail</a></div></div>
-          <div class="nav-group"><a class="nav-item" href="paint.html"><span class="nav-icon">✎</span><span class="nav-label">Paint</span></a><div class="subnav"><a href="paint-recipe-detail.html">Paint recipe detail</a></div></div>
-          <div class="nav-group"><a class="nav-item" href="games.html"><span class="nav-icon">▣</span><span class="nav-label">Games</span></a><div class="subnav"><a href="collection-history.html">Collection history</a></div></div>
+          <div class="nav-group nav-group--active"><a class="nav-item nav-item--active" href="index.html"><span class="nav-icon nav-icon--collection" aria-hidden="true"></span><span class="nav-label">Collection</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="armies.html"><span class="nav-icon">⚔</span><span class="nav-label">Armies</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="paint.html"><span class="nav-icon">✎</span><span class="nav-label">Paint</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="games.html"><span class="nav-icon">▣</span><span class="nav-label">Games</span></a></div>
           <div class="nav-group"><a class="nav-item" href="photos.html"><span class="nav-icon">◉</span><span class="nav-label">Photos</span></a></div>
-          <div class="nav-group"><a class="nav-item" href="notes.html"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a><div class="subnav"><a href="locations.html">Locations</a></div></div>
+          <div class="nav-group"><a class="nav-item" href="notes.html"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="wishlist.html"><span class="nav-icon">☆</span><span class="nav-label">Wishlist</span></a></div>
+          <div class="nav-group"><a class="nav-item" href="supplies.html"><span class="nav-icon">⌁</span><span class="nav-label">Supplies</span></a></div>
         </nav>
       </aside>
 
@@ -35,10 +37,10 @@
         <header class="topbar">
           <div class="topbar__context">
             <p class="topbar__eyebrow">Forge Ledger</p>
-            <h2>Armoury / Space Marines</h2>
+            <h2>Collection overview</h2>
           </div>
           <div class="topbar__actions">
-            <button type="button" class="action-pill">Import list</button>
+            <button type="button" class="action-pill">Add game</button>
             <button type="button" class="action-pill action-pill--accent">Add unit</button>
           </div>
         </header>
@@ -46,89 +48,118 @@
         <main class="content" id="collection">
           <section class="summary-row">
             <article class="summary-card">
-              <p class="summary-card__label">Armoury status</p>
-              <strong>128 models</strong>
-              <span>Across 4 game systems</span>
+              <p class="summary-card__label">Collection state</p>
+              <strong>96 models</strong>
+              <span>Across 3 active projects</span>
             </article>
             <article class="summary-card">
               <p class="summary-card__label">Battle ready</p>
-              <strong>14 units</strong>
-              <span>Painted and field tested</span>
+              <strong>39%</strong>
+              <span>37 models ready to field</span>
             </article>
             <article class="summary-card">
-              <p class="summary-card__label">Battle record</p>
-              <strong>9 games</strong>
-              <span>Edition and score history</span>
+              <p class="summary-card__label">Next game</p>
+              <strong>18 days</strong>
+              <span>Saturday at Dragon's Hoard</span>
             </article>
             <article class="summary-card summary-card--accent">
-              <p class="summary-card__label">Current muster</p>
-              <strong>Space Marines</strong>
-              <span>Location, paint, and photos</span>
+              <p class="summary-card__label">Action queue</p>
+              <strong>7 priorities</strong>
+              <span>3 need attention this week</span>
             </article>
           </section>
 
           <section class="dashboard-grid" aria-label="Dashboard content">
-            <article class="panel panel--wide" id="armies">
+            <article class="panel panel--wide collection-state-panel" id="armies">
               <div class="panel__header">
-                <h3>Armoury status</h3>
-                <span class="detail-chip">Updated today</span>
+                <div>
+                  <p class="panel__eyebrow">Collection state</p>
+                  <h3>Readiness by army and project</h3>
+                </div>
+                <a class="detail-chip" href="collection-board.html">Open collection board</a>
               </div>
-              <div class="status-table">
-                <div class="status-row"><span>Intercessor Squad Alpha</span><span>Painted</span><span>Home</span><span class="status-marker status-marker--ready">Battle ready</span></div>
-                <div class="status-row"><span>Bladeguard Veterans</span><span>Built</span><span>Store</span><span class="status-marker status-marker--magnetised">Magnetised</span></div>
-                <div class="status-row"><span>Scout Squad</span><span>In box</span><span>Cabinet</span><span class="status-marker status-marker--basing">Needs basing</span></div>
+              <div class="project-list">
+                <a class="project-row" href="collection-board.html">
+                  <div class="project-row__identity"><strong>Crimson Wardens</strong><span>Warhammer 40,000</span></div>
+                  <span class="project-row__total">42 models / 7 units</span>
+                  <div class="readiness" aria-label="Crimson Wardens are 36 percent battle ready"><div class="readiness__bar readiness__bar--36"><span></span><span></span><span></span><span></span><span></span></div><strong>36%</strong></div>
+                  <div class="state-counts" aria-label="Crimson Wardens: 4 in box, 6 built, 9 painted, 8 based, and 15 battle ready"><span><b>4</b> In box</span><span><b>6</b> Built</span><span><b>9</b> Painted</span><span><b>8</b> Based</span><span><b>15</b> Battle ready</span></div>
+                  <span class="project-row__priority">Finish bases on Bladeguard Veterans</span>
+                </a>
+                <a class="project-row" href="collection-board.html">
+                  <div class="project-row__identity"><strong>Iron Hallow</strong><span>Warhammer Age of Sigmar</span></div>
+                  <span class="project-row__total">31 models / 5 units</span>
+                  <div class="readiness" aria-label="Iron Hallow is 29 percent battle ready"><div class="readiness__bar readiness__bar--29"><span></span><span></span><span></span><span></span><span></span></div><strong>29%</strong></div>
+                  <div class="state-counts" aria-label="Iron Hallow: 7 in box, 5 built, 6 painted, 4 based, and 9 battle ready"><span><b>7</b> In box</span><span><b>5</b> Built</span><span><b>6</b> Painted</span><span><b>4</b> Based</span><span><b>9</b> Battle ready</span></div>
+                  <span class="project-row__priority">Build the Annihilators</span>
+                </a>
+                <a class="project-row" href="collection-board.html">
+                  <div class="project-row__identity"><strong>Knights of the Forge</strong><span>Horus Heresy</span></div>
+                  <span class="project-row__total">23 models / 4 units</span>
+                  <div class="readiness" aria-label="Knights of the Forge are 57 percent battle ready"><div class="readiness__bar readiness__bar--57"><span></span><span></span><span></span><span></span><span></span></div><strong>57%</strong></div>
+                  <div class="state-counts" aria-label="Knights of the Forge: 1 in box, 2 built, 3 painted, 4 based, and 13 battle ready"><span><b>1</b> In box</span><span><b>2</b> Built</span><span><b>3</b> Painted</span><span><b>4</b> Based</span><span><b>13</b> Battle ready</span></div>
+                  <span class="project-row__priority">Photograph the completed Contemptor</span>
+                </a>
               </div>
             </article>
 
-            <article class="panel panel--media" id="photos">
-              <div class="detail-panel__header">
-                <h3>Current paint reference</h3>
-                <span class="detail-chip detail-chip--soft">3 images</span>
-              </div>
-              <div class="photo-grid">
-                <figure class="photo-frame photo-frame--one">
-                  <img src="space-marine-1.png" alt="Painted Space Marine with red helmet and dark blue armour" />
-                </figure>
-                <figure class="photo-frame photo-frame--two">
-                  <img src="space-marine-2.png" alt="Blue Space Marine holding a weapon" />
-                </figure>
-                <figure class="photo-frame photo-frame--three">
-                  <img src="space-marine-3.png" alt="Space Marine miniature with heavy weapon and white shoulder plate" />
-                </figure>
-              </div>
-            </article>
-
-            <article class="panel" id="paint">
+            <a class="panel priority-card" href="upcoming-games.html" id="games">
               <div class="panel__header">
-                <h3>Paint doctrine</h3>
-                <span class="detail-chip">Completed unit</span>
+                <div><p class="panel__eyebrow">Upcoming game</p><h3>Saturday, 04 October</h3></div>
+                <span class="priority-card__status">Action needed</span>
               </div>
-              <ul class="note-list">
-                <li>Prime black, zenithal white.</li>
-                <li>Blue armor, red helmet, white pauldron.</li>
-                <li>Finish with edge highlights and matte varnish.</li>
+              <p>2,000 pts against Orks at Dragon's Hoard Games.</p>
+              <p class="priority-card__action">2 units need basing before muster</p>
+              <span class="text-link">Review game readiness</span>
+            </a>
+
+            <article class="panel health-panel" id="paint">
+              <div class="panel__header">
+                <div><p class="panel__eyebrow">Collection health</p><h3>Exceptions to resolve</h3></div>
+                <span class="detail-chip">5 open</span>
+              </div>
+              <ul class="health-list">
+                <li><strong>2 units</strong><span>have no reference photo</span></li>
+                <li><strong>1 painted unit</strong><span>has no paint doctrine</span></li>
+                <li><strong>2 models</strong><span>need a confirmed location</span></li>
               </ul>
             </article>
 
-            <article class="panel" id="games">
+            <article class="panel activity-panel" id="notes">
               <div class="panel__header">
-                <h3>Recent battle record</h3>
-                <span class="detail-chip">10th edition</span>
+                <div><p class="panel__eyebrow">Recent activity</p><h3>Progress in the forge</h3></div>
+                <a class="detail-chip" href="collection-history.html">View history</a>
               </div>
-              <ul class="note-list">
-                <li>January points list</li>
-                <li>Score: 81-72</li>
-                <li>Last run: 12 Jan</li>
-              </ul>
+              <ol class="activity-list">
+                <li><time>Today</time><span>Terminator Squad reached <strong>Painted</strong>.</span></li>
+                <li><time>Yesterday</time><span>Added a recipe for Crimson Warden shoulder plates.</span></li>
+                <li><time>12 Sep</time><span>Moved Bladeguard Veterans to Home Display Shelf.</span></li>
+              </ol>
             </article>
 
-            <article class="panel" id="notes">
+            <a class="panel must-buy-card" href="must-buy.html" id="wishlist">
               <div class="panel__header">
-                <h3>Field location and notes</h3>
-                <span class="detail-chip">Home</span>
+                <div><p class="panel__eyebrow">Must buy</p><h3>Before the next game</h3></div>
+                <span class="detail-chip">3 items</span>
               </div>
-              <p>Stored in a labelled case with weathering notes and spare shoulder plates.</p>
-            </article>
+              <ul class="must-buy-list">
+                <li>32mm textured bases <span>Needed for Bladeguard</span></li>
+                <li>Mephiston Red <span>Reinforcement paint</span></li>
+                <li>Foam case insert <span>Transport to venue</span></li>
+              </ul>
+            </a>
+
+            <a class="panel panel--wide inspiration-panel" href="inspiration.html" id="photos">
+              <div class="panel__header">
+                <div><p class="panel__eyebrow">Collection inspiration</p><h3>Recent work worth returning to</h3></div>
+                <span class="text-link">View inspiration</span>
+              </div>
+              <div class="inspiration-strip">
+                <figure><img src="space-marine-1.png" alt="Painted Space Marine with red helmet and dark blue armour" /><figcaption>Crimson Warden command</figcaption></figure>
+                <figure><img src="space-marine-2.png" alt="Blue Space Marine holding a weapon" /><figcaption>Blue armour reference</figcaption></figure>
+                <figure><img src="space-marine-3.png" alt="Space Marine miniature with heavy weapon and white shoulder plate" /><figcaption>Completed heavy support</figcaption></figure>
+              </div>
+            </a>
           </section>
         </main>
       </div>
