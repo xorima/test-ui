@@ -631,6 +631,19 @@ a.detail-chip {
 .game-page-heading h1 { font-size: clamp(1.35rem, 2.5vw, 2rem); margin-bottom: 0; }
 .game-page-heading > p { max-width: 48ch; margin-bottom: 0; }
 
+.purchase-page-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 0.7fr); gap: 24px; align-items: end; margin-bottom: 22px; padding: 4px 2px 6px; }
+.purchase-page-heading h1 { font-size: clamp(1.35rem, 2.5vw, 2rem); margin-bottom: 0; }
+.purchase-page-heading > p { max-width: 48ch; margin-bottom: 0; color: var(--muted); }
+.purchase-panel { padding: 22px; }
+.purchase-list { border-top: 1px solid var(--border); }
+.purchase-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(190px, 0.7fr); gap: 18px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.purchase-row__item { display: grid; gap: 4px; }
+.purchase-row__item span { color: var(--muted); font-size: 0.88rem; }
+.purchase-row a { color: var(--accent-dark); font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+.purchase-row a:hover { text-decoration: underline; }
+.purchase-status { border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 0.75rem; font-weight: 800; padding: 6px 9px; white-space: nowrap; }
+.purchase-row--urgent .purchase-status { background: var(--accent-soft); color: var(--accent-dark); }
+
 .upcoming-games-layout { display: grid; grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr); gap: 10px; align-items: start; }
 .game-entry-list { display: grid; gap: 8px; }
 
@@ -703,11 +716,12 @@ a.detail-chip {
 @media (max-width: 720px) {
   .detail-layout { grid-template-columns: 1fr; }
   .record-grid { grid-template-columns: 1fr; }
-  .game-page-heading, .upcoming-games-layout { grid-template-columns: 1fr; display: grid; gap: 10px; }
+  .game-page-heading, .purchase-page-heading, .upcoming-games-layout { grid-template-columns: 1fr; display: grid; gap: 10px; }
   .game-entry { grid-template-columns: 48px minmax(0, 1fr); }
   .game-entry .game-status { grid-column: 2; }
   .post-game-record__fields { grid-template-columns: 1fr; }
   .readiness-list li { display: grid; gap: 3px; }
+  .purchase-row { grid-template-columns: 1fr; gap: 9px; }
 }
 
 .panel p,
