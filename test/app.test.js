@@ -8,6 +8,7 @@ test('nextMenuState opens a closed menu', () => {
 
   assert.equal(result.isOpen, true);
   assert.equal(result.ariaExpanded, 'true');
+  assert.equal(result.ariaLabel, 'Close navigation menu');
 });
 
 test('nextMenuState closes an open menu', () => {
@@ -15,4 +16,5 @@ test('nextMenuState closes an open menu', () => {
 
   assert.equal(result.isOpen, false);
   assert.equal(result.ariaExpanded, 'false');
+  assert.equal(result.ariaLabel, 'Open navigation menu');
 });

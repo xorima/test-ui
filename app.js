@@ -4,6 +4,7 @@ function nextMenuState(isOpen) {
   return {
     isOpen: nextIsOpen,
     ariaExpanded: String(nextIsOpen),
+    ariaLabel: nextIsOpen ? 'Close navigation menu' : 'Open navigation menu',
   };
 }
 
@@ -23,6 +24,7 @@ if (sidebar && toggle && appShell) {
     sidebar.setAttribute('data-open', String(nextState.isOpen));
     appShell.setAttribute('data-menu-open', String(nextState.isOpen));
     toggle.setAttribute('aria-expanded', nextState.ariaExpanded);
+    toggle.setAttribute('aria-label', nextState.ariaLabel);
   });
 }
 
@@ -48,9 +50,25 @@ if (typeof document !== 'undefined') {
 
     const subnav = document.createElement('div');
     subnav.className = 'subnav';
-    subnav.innerHTML = pages.map(([href, label]) => `<a href="${href}">${label}</a>`).join('');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    subnav.innerHTML = pages.map(([href, label]) => `<a href="${href}"${href === currentPage ? ' class="subnav__item--active" aria-current="page"' : ''}>${label}</a>`).join('');
     group.append(subnav);
   });
+
+  document.querySelectorAll('.nav-item').forEach((link) => {
+    const group = link.closest('.nav-group');
+    if (link.getAttribute('href') === currentPage) {
+      link.setAttribute('aria-current', 'page');
+      if (group) group.classList.add('nav-group--active');
+    }
+    const pages = subpages[link.getAttribute('href')];
+    if (pages && pages.some(([href]) => href === currentPage)) {
+      link.setAttribute('aria-current', 'page');
+      if (group) group.classList.add('nav-group--active');
+    }
+  });
+
+  document.querySelectorAll('.nav-icon').forEach((icon) => icon.setAttribute('aria-hidden', 'true'));
 
   document.querySelectorAll('[draggable="true"]').forEach((unit) => {
     unit.addEventListener('dragstart', (event) => {
@@ -108,8 +126,15 @@ if (typeof document !== 'undefined') {
 
   const gameEntries = document.querySelectorAll('[data-game]');
   const selectedGame = document.querySelector('[data-selected-game]');
+  const gameRecordValues = {};
+  let selectedGameKey = 'friday';
 
-  const renderSelectedGame = (game) => {
+  const escapeHtml = (value) => value.replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]);
+
+  const renderSelectedGame = (gameKey) => {
+    const game = gameDetails[gameKey];
+    const record = gameRecordValues[gameKey] || { opponentFaction: game.opponent, yourScore: '', opponentScore: '' };
+
     selectedGame.innerHTML = `
       <div class="panel__header">
         <div><p class="panel__eyebrow">Selected game</p><h3>${game.date}</h3></div>
@@ -118,21 +143,40 @@ if (typeof document !== 'undefined') {
       <div class="selected-game-panel__meta"><span>${game.venue}</span><span>${game.system}</span><span>${game.list}</span></div>
       <section class="readiness-section"><h4>Required list units</h4><ul class="readiness-list">${game.units.map(([unit, availability]) => `<li><strong>${unit}</strong><span>${availability}</span></li>`).join('')}</ul></section>
       <section class="readiness-section readiness-section--tasks"><h4>Deadline tasks</h4><ul class="task-list">${game.tasks.map((task) => `<li>${task}</li>`).join('')}</ul></section>
-      <form class="post-game-record"><h4>Post-game record</h4><div class="post-game-record__fields"><label>Opponent faction<input name="opponent-faction" value="${game.opponent}" /></label><label>Your score <span>Optional</span><input name="your-score" type="number" inputmode="numeric" /></label><label>Opponent score <span>Optional</span><input name="opponent-score" type="number" inputmode="numeric" /></label></div></form>`;
+      <form class="post-game-record"><h4>Post-game record</h4><div class="post-game-record__fields"><label>Opponent faction<input name="opponent-faction" value="${escapeHtml(record.opponentFaction)}" /></label><label>Your score <span>Optional</span><input name="your-score" type="number" inputmode="numeric" value="${escapeHtml(record.yourScore)}" /></label><label>Opponent score <span>Optional</span><input name="opponent-score" type="number" inputmode="numeric" value="${escapeHtml(record.opponentScore)}" /></label></div></form>`;
   };
 
   if (selectedGame) {
+    renderSelectedGame(selectedGameKey);
+
+    selectedGame.addEventListener('input', (event) => {
+      const input = event.target;
+
+      if (!(input instanceof HTMLInputElement)) {
+        return;
+      }
+
+      gameRecordValues[selectedGameKey] = {
+        ...(gameRecordValues[selectedGameKey] || { opponentFaction: gameDetails[selectedGameKey].opponent, yourScore: '', opponentScore: '' }),
+        opponentFaction: selectedGame.querySelector('[name="opponent-faction"]').value,
+        yourScore: selectedGame.querySelector('[name="your-score"]').value,
+        opponentScore: selectedGame.querySelector('[name="opponent-score"]').value,
+      };
+    });
+
     gameEntries.forEach((entry) => {
       entry.addEventListener('click', () => {
-        const game = gameDetails[entry.dataset.game];
+        const gameKey = entry.dataset.game;
+        const game = gameDetails[gameKey];
 
         if (!game) {
           return;
         }
 
-        gameEntries.forEach((item) => item.removeAttribute('aria-current'));
-        entry.setAttribute('aria-current', 'true');
-        renderSelectedGame(game);
+        gameEntries.forEach((item) => item.setAttribute('aria-pressed', 'false'));
+        entry.setAttribute('aria-pressed', 'true');
+        selectedGameKey = gameKey;
+        renderSelectedGame(gameKey);
       });
     });
   }

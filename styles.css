@@ -201,6 +201,11 @@ h1 {
   color: #fffaf0;
 }
 
+.subnav__item--active {
+  color: #fffaf0 !important;
+  font-weight: 800;
+}
+
 .nav-item {
   display: flex;
   align-items: center;
@@ -252,6 +257,11 @@ h1 {
   color: #fffaf0;
   background: var(--accent);
   border-color: var(--accent);
+}
+
+:where(a, button, input):focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
 }
 
 .app-main {
@@ -435,11 +445,11 @@ a.detail-chip {
 
 .readiness { display: flex; align-items: center; gap: 9px; }
 .readiness strong { color: var(--accent-dark); font-size: 0.82rem; }
-.readiness__bar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; flex: 1; }
-.readiness__bar span { height: 9px; border-radius: 2px; background: var(--surface-3); }
-.readiness__bar--36 span:nth-child(-n + 2),
-.readiness__bar--29 span:nth-child(-n + 1),
-.readiness__bar--57 span:nth-child(-n + 3) { background: var(--accent); }
+.readiness__bar { height: 9px; flex: 1; overflow: hidden; border-radius: 2px; background: var(--surface-3); }
+.readiness__bar::after { content: ""; display: block; height: 100%; background: var(--accent); }
+.readiness__bar--36::after { width: 36%; }
+.readiness__bar--29::after { width: 29%; }
+.readiness__bar--57::after { width: 57%; }
 
 .state-counts { display: flex; flex-wrap: wrap; gap: 4px 8px; }
 .state-counts span { color: var(--muted); font-size: 0.67rem; white-space: nowrap; }
@@ -665,8 +675,8 @@ a.detail-chip {
   transition: 160ms ease;
 }
 
-.game-entry:hover, .game-entry[aria-current="true"] { border-color: rgba(174, 30, 44, 0.42); background: #fffdf8; transform: translateY(-1px); }
-.game-entry[aria-current="true"] { box-shadow: 0 10px 24px rgba(91, 20, 25, 0.14); }
+.game-entry:hover, .game-entry[aria-pressed="true"] { border-color: rgba(174, 30, 44, 0.42); background: #fffdf8; transform: translateY(-1px); }
+.game-entry[aria-pressed="true"] { box-shadow: 0 10px 24px rgba(91, 20, 25, 0.14); }
 .game-entry--ready { border-left-color: #498268; }
 .game-entry--action-needed { border-left-color: var(--gold); }
 .game-entry--at-risk { border-left-color: var(--accent); }
@@ -738,17 +748,26 @@ a.detail-chip {
   }
 
   .app-shell {
-    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
-  .app-shell[data-menu-open="true"] {
-    grid-template-columns: 190px minmax(0, 1fr);
+  .app-main {
+    grid-column: 1;
   }
 
   .sidebar {
+    position: fixed;
+    z-index: 10;
+    width: 52px;
     height: calc(100vh - 16px);
     top: 8px;
+    left: 8px;
+    transition: width 180ms ease;
+  }
+
+  .sidebar[data-open="true"] {
+    width: 224px;
   }
 
   .topbar {
@@ -778,4 +797,19 @@ a.detail-chip {
   .must-buy-list li { display: grid; }
 
   .must-buy-list span { text-align: left; }
+
+  .project-row:hover,
+  .project-row:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+}
+
+.project-row:focus-visible,
+.game-entry:focus-visible,
+.action-pill:focus-visible,
+.detail-chip:focus-visible,
+.text-link:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
 }
